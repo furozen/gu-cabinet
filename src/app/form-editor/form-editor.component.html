@@ -1,0 +1,41 @@
+
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title *ngIf="_id">Редактирование сервиса</mat-card-title>
+        <mat-card-title *ngIf="!_id">Создание сервися</mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+        <div class="container">
+            <mat-form-field>
+              <input matInput  placeholder="Название сервиса" [value]="data.name" (input)="data.name = $event.target.value">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Описание сервиса" [value]="data.description" (input)="data.description = $event.target.value"></textarea>
+              </mat-form-field>
+        </div>
+    </mat-card-content>
+
+
+     <mat-card>
+     <mat-card-header>
+         <h3>Данные пользователя </h3>
+     </mat-card-header>
+     <ng-container *ngFor="let field of data.fields" dynamicField [field]="field" >
+      </ng-container>
+
+      <mat-card-actions>
+      <button mat-stroked-button (click)="addInput()">Добавить поле</button>
+      <button mat-stroked-button (click)="addSelect()">Добавить поле с выбором из списка</button>
+      </mat-card-actions>
+     </mat-card>
+    <mat-card-actions>
+        <button  mat-raised-button (click)="saveAndReturnToDashboard()" color="primary">Сохранить и вернуться</button>
+        <button  mat-raised-button (click)="save()" >Сохранить</button>
+        <button  mat-raised-button (click)="returnToDashboard()" color="warn">Вернутся без сохранения</button>
+    </mat-card-actions>
+</mat-card>
+
+<pre>
+  {{rawData()}}
+</pre>

@@ -1,0 +1,13 @@
+.card{
+  margin: 1rem;
+  padding: 1rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.container > * {
+  width: 100%;
+}

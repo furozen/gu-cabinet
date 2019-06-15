@@ -1,0 +1,31 @@
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+.status{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.approved {
+  border-radius: 1em;
+  background: lightgreen;
+  color: white;
+}
+
+.disapproved {
+  border-radius: 1em;
+  background: lightgray;
+  color: darkgray;
+}

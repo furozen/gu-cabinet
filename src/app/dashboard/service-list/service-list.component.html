@@ -1,0 +1,29 @@
+<mat-accordion class="example-headers-align">
+
+
+  <mat-expansion-panel *ngFor="let item of list" [expanded]="step === item.id" (opened)="setStep(item.id)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{item.name}}
+      </mat-panel-title>
+      <mat-panel-description >
+
+        <div  *ngIf="item.isApproved"  class="status approved" ><mat-icon *ngIf="item.isApproved" color="accent" title="одобренно">check_cicle</mat-icon> <span>одобренно</span></div>
+        <div  *ngIf="!item.isApproved"  class="status disapproved" ><mat-icon *ngIf="!item.isApproved" disabled="true" title="не одобренно">check_cicle </mat-icon><span>неодобренно</span></div>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <article>
+    {{item.description}}
+    </article>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="edit(item.id)">Edit</button>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+
+
+</mat-accordion>

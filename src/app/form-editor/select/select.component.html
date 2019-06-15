@@ -1,0 +1,34 @@
+<section class="container">
+<mat-card>
+    <mat-form-field class="demo-full-width" >
+
+
+    <mat-select [placeholder]="field.label" [placeholder]="field.label" readonly>
+    <mat-option *ngFor="let item of field.options" [value]="item">{{item}}</mat-option>
+    </mat-select>
+
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+    <mat-error >{{validation.message}}</mat-error>
+    </ng-container>
+    </mat-form-field>
+    <mat-card-subtitle>{{field?.description}}</mat-card-subtitle>
+</mat-card>
+
+<mat-card class="toggle-panel">
+<button (click)="up(item)"><mat-icon>arrow_upward</mat-icon></button>
+<mat-slide-toggle [checked]="field.editable" color="primary"(change)="field.editable=!field.editable"></mat-slide-toggle>
+</mat-card>
+
+<mat-card *ngIf="field.editable" >
+    <mat-form-field *ngIf="field.editable" class="demo-full-width" >
+    <input  matInput placeholder="название поля" [value]="field.label" (input)="field.name=getName($event.target.value); field.label = $event.target.value; ">
+    </mat-form-field>
+    <mat-form-field *ngIf="field.editable" class="demo-full-width" >
+    <input  matInput placeholder="описание поля" [value]="field.description||''" (input)="field.description = $event.target.value">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Поля для выбора через запятую" [value]="field.options.join()" (input)="field.options = $event.target.value.split(',')"></textarea>
+      </mat-form-field>
+</mat-card>
+</section>
