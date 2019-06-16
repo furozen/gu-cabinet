@@ -10,13 +10,19 @@
     <mat-card-subtitle>{{field?.description}}</mat-card-subtitle>
 </mat-card>
 
+<mat-card class="toggle-panel">
 <mat-slide-toggle [checked]="field.editable" color="primary"(change)="field.editable=!field.editable"></mat-slide-toggle>
+<span>&nbsp;</span>
+<button mat-stroked-button (click)="move('up',field)"><mat-icon>expand_less</mat-icon></button>
+<button mat-stroked-button (click)="move('hell',field)"><mat-icon>delete</mat-icon></button>
+<button mat-stroked-button (click)="move('down',field)"><mat-icon>expand_more</mat-icon></button>
+</mat-card>
 
-<mat-card *ngIf="field.editable" >
-    <mat-form-field *ngIf="field.editable" class="demo-full-width" >
+<mat-card *ngIf="field.editable" class="edit-panel">
+    <mat-form-field *ngIf="field.editable" class="edit-field" >
     <input  matInput placeholder="название поля" [value]="field.label" (input)="field.name=getName($event.target.value); field.label = $event.target.value; ">
     </mat-form-field>
-    <mat-form-field *ngIf="field.editable" class="demo-full-width" >
+    <mat-form-field *ngIf="field.editable" class="edit-field" >
     <input  matInput placeholder="описание поля" [value]="field.description||''" (input)="field.description = $event.target.value">
     </mat-form-field>
 </mat-card>

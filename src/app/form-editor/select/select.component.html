@@ -15,19 +15,22 @@
 </mat-card>
 
 <mat-card class="toggle-panel">
-<button (click)="up(item)"><mat-icon>arrow_upward</mat-icon></button>
 <mat-slide-toggle [checked]="field.editable" color="primary"(change)="field.editable=!field.editable"></mat-slide-toggle>
+<span>&nbsp;</span>
+<button mat-stroked-button  (click)="move('up',field)"><mat-icon>expand_less</mat-icon></button>
+<button mat-stroked-button  (click)="move('hell',field)"><mat-icon>delete</mat-icon></button>
+<button mat-stroked-button (click)="move('down',field)"><mat-icon>expand_more</mat-icon></button>
 </mat-card>
 
-<mat-card *ngIf="field.editable" >
-    <mat-form-field *ngIf="field.editable" class="demo-full-width" >
+<mat-card *ngIf="field.editable" class="edit-panel">
+    <mat-form-field *ngIf="field.editable" class="edit-field" >
     <input  matInput placeholder="название поля" [value]="field.label" (input)="field.name=getName($event.target.value); field.label = $event.target.value; ">
     </mat-form-field>
-    <mat-form-field *ngIf="field.editable" class="demo-full-width" >
+    <mat-form-field *ngIf="field.editable" class="edit-field" >
     <input  matInput placeholder="описание поля" [value]="field.description||''" (input)="field.description = $event.target.value">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="field.editable" class="edit-field double-flex-grow" >
         <textarea matInput placeholder="Поля для выбора через запятую" [value]="field.options.join()" (input)="field.options = $event.target.value.split(',')"></textarea>
       </mat-form-field>
 </mat-card>

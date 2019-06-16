@@ -22,6 +22,9 @@ export class ServiceListComponent implements OnInit {
     )
   }
 
+  delete(id:number){
+    this.dataProviderService.deleteById(id).subscribe(_=> {this.getList()});
+  }
 
 
   ngOnInit() {
@@ -36,7 +39,7 @@ export class ServiceListComponent implements OnInit {
   nextStep() {
     this.step++;
   }
-
+// TODO no way use this logic becouse can be holes in indexes
   prevStep() {
     this.step--;
   }

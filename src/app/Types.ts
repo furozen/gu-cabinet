@@ -51,3 +51,8 @@ export interface IGUServiceData {
   // We do not really delete any data just mark it as deleted.
   isDeleted:boolean;
 }
+export interface IGUPredefinedServiceData{
+  title:string;
+  description: string;
+  template: IGUServiceData
+}

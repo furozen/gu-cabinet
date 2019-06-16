@@ -11,3 +11,8 @@
 .container > * {
   width: 100%;
 }
+
+.action-buttons {
+  display: flex;
+  align-content: flex-end;
+}

@@ -1,5 +1,5 @@
 
-<mat-card class="card">
+<mat-card class="card" (moveItem)="moveFieldEvent($event)">
     <mat-card-header>
         <mat-card-title *ngIf="_id">Редактирование сервиса</mat-card-title>
         <mat-card-title *ngIf="!_id">Создание сервися</mat-card-title>
@@ -21,7 +21,7 @@
      <mat-card-header>
          <h3>Данные пользователя </h3>
      </mat-card-header>
-     <ng-container *ngFor="let field of data.fields" dynamicField [field]="field" >
+     <ng-container *ngFor="let field of data.fields" dynamicField [field]="field" (moveFieldEvent)="moveFieldEvent($event)">
       </ng-container>
 
       <mat-card-actions>
@@ -29,7 +29,7 @@
       <button mat-stroked-button (click)="addSelect()">Добавить поле с выбором из списка</button>
       </mat-card-actions>
      </mat-card>
-    <mat-card-actions>
+    <mat-card-actions class="action-buttons" >
         <button  mat-raised-button (click)="saveAndReturnToDashboard()" color="primary">Сохранить и вернуться</button>
         <button  mat-raised-button (click)="save()" >Сохранить</button>
         <button  mat-raised-button (click)="returnToDashboard()" color="warn">Вернутся без сохранения</button>

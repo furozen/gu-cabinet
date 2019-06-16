@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {Utils} from '../../utils.class';
 
 
@@ -9,13 +9,24 @@ import {Utils} from '../../utils.class';
 })
 export class InputComponent implements OnInit {
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
   }
 
   getName(value){
     return Utils.translitate(value,'_');
+  }
+
+
+  move(direction, item){
+
+    this.el.nativeElement
+      .dispatchEvent(new CustomEvent('moveItem', {
+        detail: {direction, item },
+        bubbles: true
+      }));
+
   }
 
 }

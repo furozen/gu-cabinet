@@ -3,6 +3,17 @@
   justify-content: flex-start;
   padding: 1rem;
 }
-.container mat-slide-toggle {
-  margin: 1rem;
+.container .toggle-panel {
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.container .edit-panel {
+  display: flex;
+  flex-wrap: wrap;
+}
+.edit-panel  .edit-field{
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
 }

@@ -11,6 +11,9 @@ import {SharedModule} from './shared/shared.module';
 import { DynamicFieldDirective } from './form-editor/dynamic-field.directive';
 import { InputComponent } from './form-editor/input/input.component';
 import { SelectComponent } from './form-editor/select/select.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {PredefinedComponent} from './dashboard/predefined/predefined.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { SelectComponent } from './form-editor/select/select.component';
     ServiceListComponent,
     DynamicFieldDirective,
     InputComponent,
-    SelectComponent
+    SelectComponent,
+    NavbarComponent,
+    PredefinedComponent
   ],
   imports: [
     BrowserModule,

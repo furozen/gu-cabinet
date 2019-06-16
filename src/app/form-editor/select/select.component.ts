@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 import {Utils} from '../../utils.class';
 
 @Component({
@@ -9,7 +9,7 @@ import {Utils} from '../../utils.class';
 export class SelectComponent implements OnInit {
 
   @Output() moveFieldEvent:EventEmitter<object> = new EventEmitter<object>();
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
   }
@@ -19,6 +19,15 @@ export class SelectComponent implements OnInit {
   }
 
   move(direction, item){
-    this.moveFieldEvent.emit({direction, item })
+    // this one is not working because dynamic element/
+    // TODO consider to remove it
+    this.moveFieldEvent.emit({direction, item });
+    // use dom event
+    this.el.nativeElement
+      .dispatchEvent(new CustomEvent('moveItem', {
+        detail: {direction, item },
+        bubbles: true
+      }));
+
   }
 }

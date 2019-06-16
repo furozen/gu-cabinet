@@ -9,8 +9,17 @@ import {GUFieldType, IGUComplexField, IGUServiceData} from '../Types';
   styleUrls: ['./form-editor.component.scss']
 })
 export class FormEditorComponent implements OnInit {
-  private _id:number;
-  private data: IGUServiceData;
+  private _id:number = -1;
+  private data: IGUServiceData={
+    id:-1,
+    name:'',
+    description: '',
+    fields: [],
+    isApproved: false,
+    isPublished:false,
+    isDeleted:false
+  };
+
   set id(value:number) {
     this._id = value;
     if(this._id){
@@ -35,13 +44,16 @@ export class FormEditorComponent implements OnInit {
   rawData(){
     return JSON.stringify(this.data,null, 1 );
   }
+
   saveAndReturnToDashboard(){
     this.save();
     this.returnToDashboard();
   }
+
   save(){
     this.dataProviderService.saveById(this._id,this.data);
   }
+
   returnToDashboard(){
     this.router.navigate(['']);
   }
@@ -81,6 +93,19 @@ export class FormEditorComponent implements OnInit {
       "editable": true,
       "description": "описание поля"
     })
+  }
+
+  moveFieldEvent(event){
+    let data:{direction, item} = event.detail;
+    const index=this.data.fields.findIndex(item=>data.item===item);
+    if(data.direction === 'up' && index>0){
+      this.data.fields.splice(index-1, 2, this.data.fields[index],this.data.fields[index-1]);
+    } else if(data.direction === 'down' && index < this.data.fields.length-1) {
+      this.data.fields.splice(index, 2, this.data.fields[index+1],this.data.fields[index]);
+    } else  if(data.direction === 'hell') {
+      this.data.fields.splice(index, 1);
+    }
+    console.log('found index', index );
   }
 }
 
