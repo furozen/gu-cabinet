@@ -21,7 +21,20 @@ const PredefinedTestData:IGUPredefinedServiceData[] = [
     }
   },
   {
-    title:"Фестиваль района",
+    title:"Запись на прием",
+    description:"Госуслуга к главе района",
+    template:{
+      id:-1,
+      name:'Фестиваль района',
+      description: 'Госуслуга по привлечению населения района',
+      fields: [],
+      isApproved: false,
+      isPublished:false,
+      isDeleted:false
+    }
+  },
+  {
+    title:"Ренген кабинет",
     description:"Госуслуга по привлечению населения района",
     template:{
       id:-1,
@@ -34,7 +47,7 @@ const PredefinedTestData:IGUPredefinedServiceData[] = [
     }
   },
   {
-    title:"Фестиваль района",
+    title:"Справка о регистрации",
     description:"Госуслуга по привлечению населения района",
     template:{
       id:-1,
@@ -47,7 +60,7 @@ const PredefinedTestData:IGUPredefinedServiceData[] = [
     }
   },
   {
-    title:"Фестиваль района",
+    title:"Патент получение",
     description:"Госуслуга по привлечению населения района",
     template:{
       id:-1,
@@ -58,45 +71,7 @@ const PredefinedTestData:IGUPredefinedServiceData[] = [
       isPublished:false,
       isDeleted:false
     }
-  },
-  {
-    title:"Фестиваль района",
-    description:"Госуслуга по привлечению населения района",
-    template:{
-      id:-1,
-      name:'Фестиваль района',
-      description: 'Госуслуга по привлечению населения района',
-      fields: [],
-      isApproved: false,
-      isPublished:false,
-      isDeleted:false
-    }
-  },
-  {
-    title:"Фестиваль района",
-    description:"Госуслуга по привлечению населения района",
-    template:{
-      id:-1,
-      name:'Фестиваль района',
-      description: 'Госуслуга по привлечению населения района',
-      fields: [],
-      isApproved: false,
-      isPublished:false,
-      isDeleted:false
-    }
-  },
-  {
-    title:"Фестиваль района",
-    description:"Госуслуга по привлечению населения района",
-    template:{
-      id:-1,
-      name:'Фестиваль района',
-      description: 'Госуслуга по привлечению населения района',
-      fields: [],
-      isApproved: false,
-      isPublished:false,
-      isDeleted:false
-    }
+
   }
 
 ];
