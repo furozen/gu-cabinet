@@ -206,7 +206,7 @@ const TestData:IGUServiceData[] = [
     "description": "Запись ребенка в летний лагерь",
     "fields": [
       {
-        "type": "input",
+        "type": GUFieldType.input,
         "label": "Имя",
         "name": "Imya",
         "value": "",
@@ -310,7 +310,10 @@ const TestData:IGUServiceData[] = [
         "editable": true,
         "description": "Выберете тип лагеря"
       }
-    ]
+    ],
+  "isApproved": false,
+  "isPublished": false,
+  "isDeleted": false
   }
 
 ]
