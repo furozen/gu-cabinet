@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataProviderService} from '../data-provider.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GUFieldType, IGUComplexField, IGUServiceData} from '../Types';
+import {GUFieldType, IGUComplexField, IGUPredefinedServiceData, IGUServiceData} from '../Types';
 
 @Component({
   selector: 'app-form-editor',
@@ -28,7 +28,16 @@ export class FormEditorComponent implements OnInit {
   }
 
   constructor(private dataProviderService:DataProviderService,private activeRoute:ActivatedRoute, private router:Router) {
-    this.activeRoute.params.subscribe(params => this.id = parseInt(params.id));
+    this.activeRoute.params.subscribe(params => {
+      if(params.id) {
+        this.id = parseInt(params.id);
+      }
+    });
+    this.activeRoute.queryParams.subscribe(params => {
+      if(params['template']){
+        this.data = (JSON.parse(params['template']) as IGUPredefinedServiceData).template;
+      }
+    });
   }
 
   ngOnInit() {

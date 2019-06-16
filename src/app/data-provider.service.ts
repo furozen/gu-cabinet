@@ -121,74 +121,197 @@ const TestData:IGUServiceData[] = [
     isDeleted:true
   },
   {
-    id:3,
-    name:'Детский летний лагерь',
-    description: ' Запись детей в летний лагерь',
-    fields: [],
-    isApproved: true,
-    isPublished:false,
-    isDeleted:false
+    'id':6,
+    'name':'Оформление загранпаспотра ',
+    'description':'Выдача загранпаспортов старого и нового поколения ',
+    'fields':[{
+      'type':GUFieldType.input,
+      'label':'Заявление ',
+      'name':'Zayavlenie_',
+      'value':'',
+      'validators':[{'name':'required', 'validator':'Required', 'message':'Name Required'}],
+      'editable':true,
+      'description':'Заполните все необходимые поля'
+    }, {
+      'type':GUFieldType.input,
+      'label':'Госпошлина',
+      'name':'Gosposhlina',
+      'value':'',
+      'validators':[{'name':'required', 'validator':'Required', 'message':'Name Required'}],
+      'editable':true,
+      'description':'Необходимо оплатить госпошлину '
+    }],
+    'isApproved':false,
+    'isPublished':false,
+    'isDeleted':false
   },
   {
-    id:4,
-    name:'Детский летний лагерь',
-    description: ' Запись детей в летний лагерь',
-    fields: [],
-    isApproved: true,
-    isPublished:true,
-    isDeleted:false
-  },
-  {
-    id:5,
-    name:'Детский летний лагерь',
-    description: ' Запись детей в летний лагерь',
-    fields: [
+    "id": 4,
+    "name": "Проверка штрафов ",
+    "description": "Административные нарушения проверяются в базах ГИБДД  и системы государственных  платежей (ГИС ГМП). ",
+    "fields": [
       {
-      "type": GUFieldType.input,
-      "label": "Фамилия",
-      "name": "Familiya",
-      "value": "",
-      "validators": [
-        {
-          "name": "required",
-          "validator": "Required",
-          "message": "Name Required"
-        },
-        {
-          "name": "pattern",
-          "validator": "^[a-zA-Z]+$",
-          "message": "Accept only text"
-        }
-      ],
-      "editable": false,
-      "description": "введите фамилию"
-    },
+        "type": GUFieldType.input,
+        "label": "Паспорт",
+        "name": "Pasport",
+        "value": "",
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Введите серию и номер паспорта"
+      },
       {
-      "type": GUFieldType.select,
-      "label": "Тип лагеря",
-      "name": "Familiya",
-      "options": ["Спортивный", 'Языковый', 'Театральный'],
-      "validators": [
-        {
-          "name": "required",
-          "validator": "Required",
-          "message": "Name Required"
-        },
-        {
-          "name": "pattern",
-          "validator": "^[a-zA-Z]+$",
-          "message": "Accept only text"
-        }
-      ],
-      "editable": false,
-      "description": "выберите тип лагеря"
-    }
-
+        "type": GUFieldType.input,
+        "label": "Водительское удостоверение",
+        "name": "Voditelskoe_udostoverenie",
+        "value": "",
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Введите номер своего водительского удостоверения"
+      },
+      {
+        "type": GUFieldType.input,
+        "label": "Номер транспортного средства",
+        "name": "Nomer_transportnogo_sredstva",
+        "value": "",
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Введите номер своего транспортного средства"
+      }
     ],
-    isApproved: false,
-    isPublished:false,
-    isDeleted:false
+    "isApproved": false,
+    "isPublished": false,
+    "isDeleted": false
   },
+  {
+    "id": 5,
+    "name": "Детский летний лагерь",
+    "description": "Запись ребенка в летний лагерь",
+    "fields": [
+      {
+        "type": "input",
+        "label": "Имя",
+        "name": "Imya",
+        "value": "",
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Введите имя ребенка"
+      },
+      {
+        "type": GUFieldType.select,
+        "label": "Пол",
+        "name": "Pol",
+        "options": [
+          "мужской",
+          "женский"
+        ],
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "выберете пол ребенка"
+      },
+      {
+        "type": GUFieldType.input,
+        "label": "Фамилия",
+        "name": "Familiya",
+        "value": "",
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Введите фамилию ребенка"
+      },
+      {
+        "type": GUFieldType.select,
+        "label": "Возраст ребенка ",
+        "name": "Vozrast_rebenka_",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Выберете возраст"
+      },
+      {
+        "type": GUFieldType.input,
+        "label": "телефон",
+        "name": "telefon",
+        "value": "",
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "введите ваш телефонный номер"
+      },
+      {
+        "type": GUFieldType.select,
+        "label": "Тип лагеря",
+        "name": "Tip_lagerya",
+        "options": [
+          "Спортивный",
+          "Языковый",
+          "Театральный"
+        ],
+        "validators": [
+          {
+            "name": "required",
+            "validator": "Required",
+            "message": "Name Required"
+          }
+        ],
+        "editable": true,
+        "description": "Выберете тип лагеря"
+      }
+    ]
+  }
 
 ]
 

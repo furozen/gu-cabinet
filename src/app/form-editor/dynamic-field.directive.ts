@@ -23,7 +23,7 @@ const componentMapper = {
 })
 export class DynamicFieldDirective implements OnInit {
   @Input() field: TGUFields;
-  //@Input() group: FormGroup;
+
   componentRef: any;
   constructor(
     private resolver: ComponentFactoryResolver,
@@ -31,10 +31,11 @@ export class DynamicFieldDirective implements OnInit {
   ) {}
   ngOnInit() {
     const factory = this.resolver.resolveComponentFactory(
-      componentMapper[this.field.type]
+      // TODO research why this error pop-up on prev commit
+      componentMapper[this.field.type as any]
     );
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.field = this.field;
-    //this.componentRef.instance.group = this.group;
+
   }
 }
