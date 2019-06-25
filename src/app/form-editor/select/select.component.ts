@@ -1,5 +1,6 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 import {Utils} from '../../utils.class';
+import {IGUFieldSelect, TGUFields} from '../../Types';
 
 @Component({
   selector: 'app-select',
@@ -7,7 +8,7 @@ import {Utils} from '../../utils.class';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit {
-
+  field:IGUFieldSelect;
   @Output() moveFieldEvent:EventEmitter<object> = new EventEmitter<object>();
   constructor(private el: ElementRef) { }
 

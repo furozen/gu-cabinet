@@ -28,7 +28,7 @@ import {PredefinedComponent} from './dashboard/predefined/predefined.component';
     PredefinedComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     SharedModule,
     NoopAnimationsModule

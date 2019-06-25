@@ -1,8 +1,8 @@
 
 <mat-card class="card" (moveItem)="moveFieldEvent($event)">
     <mat-card-header>
-        <mat-card-title *ngIf="_id">Редактирование сервиса</mat-card-title>
-        <mat-card-title *ngIf="!_id">Создание сервися</mat-card-title>
+        <mat-card-title *ngIf="id">Редактирование сервиса</mat-card-title>
+        <mat-card-title *ngIf="!id">Создание сервиса</mat-card-title>
 
     </mat-card-header>
     <mat-card-content>

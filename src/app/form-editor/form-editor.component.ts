@@ -10,7 +10,7 @@ import {GUFieldType, IGUComplexField, IGUPredefinedServiceData, IGUServiceData} 
 })
 export class FormEditorComponent implements OnInit {
   private _id:number = -1;
-  private data: IGUServiceData={
+  data: IGUServiceData={
     id:-1,
     name:'',
     description: '',
@@ -19,6 +19,10 @@ export class FormEditorComponent implements OnInit {
     isPublished:false,
     isDeleted:false
   };
+
+  get id():number{
+    return this._id;
+  }
 
   set id(value:number) {
     this._id = value;

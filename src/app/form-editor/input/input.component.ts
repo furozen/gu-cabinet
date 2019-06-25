@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {Utils} from '../../utils.class';
+import {TGUFields} from '../../Types';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {Utils} from '../../utils.class';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
-
+  field: TGUFields;
   constructor(private el: ElementRef) { }
 
   ngOnInit() {

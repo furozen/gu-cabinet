@@ -77,24 +77,7 @@ const PredefinedTestData:IGUPredefinedServiceData[] = [
 ];
 
 const TestData:IGUServiceData[] = [
-  {
-    id:1,
-    name:'Детский летний лагерь',
-    description: ' Запись детей в летний лагерь',
-    fields: [],
-    isApproved: true,
-    isPublished:false,
-    isDeleted:false
-  },
-  {
-    id:2,
-    name:'Детский летний лагерь',
-    description: ' Запись детей в летний лагерь',
-    fields: [],
-    isApproved: true,
-    isPublished:false,
-    isDeleted:true
-  },
+
   {
     'id':6,
     'name':'Оформление загранпаспотра ',
@@ -300,7 +283,7 @@ export class DataProviderService implements OnDestroy,OnInit{
 
   private data:IGUServiceData[];
   private predefined:IGUPredefinedServiceData[];
-  private localStorageKey = 'localData';
+  //private localStorageKey = 'localData';
   constructor() {
     // TODO get data from web
     this.data = TestData;
@@ -345,14 +328,18 @@ export class DataProviderService implements OnDestroy,OnInit{
     return of(this.data[0]);
   }
   ngOnDestroy():void {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.data));
+    /*if(localStorage) {
+      localStorage.setItem(this.localStorageKey, JSON.stringify(this.data));
+    }*/
   }
 
   ngOnInit():void {
-    let data = JSON.parse(localStorage.getItem(this.localStorageKey));
-    if(data){
-      this.data = data;
-    }
+    /*if(localStorage) {
+      let data = JSON.parse(localStorage.getItem(this.localStorageKey));
+      if (data) {
+        this.data = data;
+      }
+    }*/
   }
 
 
